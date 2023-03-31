@@ -1,6 +1,7 @@
 package clases;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,37 +9,95 @@ import java.util.ArrayList;
 import java.util.List;
 import interfaces.*;
 import clases.*;
+import conexion.ConexionSingleton;
+import interfaces.ICapacitacionDao;
+import clases.Capacitacion;
+
 
 public class CapacitacionDaoImpl implements ICapacitacionDao{
 	
+	private Connection conexion = ConexionSingleton.getConexion();
 	List<Capacitacion> capacitacion;
 	
 	//hacer la conexion , ejecutar la query, obtener los objetos del resultset
 
 	@Override
 	public boolean registrar(Capacitacion capacitacion) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "INSERT INTO capacitaciones (rut,dia,hora,lugar,duracion,cantidad_asistentes) VALUES (?,?,?,?,?,?)";
+		try {
+			PreparedStatement ps = conexion.prepareStatement(sql);
+			ps.setLong(1, capacitacion.getRut());
+			ps.setString(2, capacitacion.getDia());
+			ps.setString(3, capacitacion.getHora());
+			ps.setString(4, capacitacion.getLugar());
+			ps.setString(5, capacitacion.getDuracion());
+			ps.setInt(6, capacitacion.getCantidadAsistentes());
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public List<Capacitacion> obtener() {
-		// TODO Auto-generated method stub
-		return capacitacion;
+		String sql = "SELECT * FROM capacitaciones";
+		List<Capacitacion> lista = new ArrayList<>();
+		try {
+			PreparedStatement ps = conexion.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Capacitacion capacitacion = new Capacitacion();
+				capacitacion.setId(rs.getInt("id"));
+				capacitacion.setRut(rs.getLong("rut"));
+				capacitacion.setDia(rs.getString("dia"));
+				capacitacion.setHora(rs.getString("hora"));
+				capacitacion.setLugar(rs.getString("lugar"));
+				capacitacion.setDuracion(rs.getString("duracion"));
+				capacitacion.setCantidadAsistentes(rs.getInt("cantidad_asistentes"));
+				lista.add(capacitacion);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 	@Override
 	public boolean actualizar(Capacitacion capacitacion) {
-//		capacitacion.get(capacitacion.getDia());
-		// TODO Auto-generated method stub
-		return false;
+//		String sql = "UPDATE capacitaciones SET rut=?,dia=?,hora=?,lugar=?,duracion=?,cantidad_asistentes=? WHERE id=?";
+		
+		try {
+			String sql = "UPDATE capacitaciones SET rut=?,dia=?,hora=?,lugar=?,duracion=?,cantidad_asistentes=? WHERE id=?";
+			PreparedStatement ps = conexion.prepareStatement(sql);
+			ps.setLong(1, capacitacion.getRut());
+			ps.setString(2, capacitacion.getDia());
+			ps.setString(3, capacitacion.getHora());
+			ps.setString(4, capacitacion.getLugar());
+			ps.setString(5, capacitacion.getDuracion());
+			ps.setInt(6, capacitacion.getCantidadAsistentes());
+			ps.setInt(7, capacitacion.getId());
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean eliminar(Capacitacion capacitacion) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "DELETE FROM capacitaciones WHERE id=?";
+		try {
+			PreparedStatement ps = conexion.prepareStatement(sql);
+			ps.setInt(1, capacitacion.getId());
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
-	
 
 }
