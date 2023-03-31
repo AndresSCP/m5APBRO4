@@ -3,6 +3,7 @@ package conexion;
 import java.sql.*;
 
 public class UsoSingleton {
+    public static void main(String[] args) {}
 
     // Propiedades
     private static Connection conn = null;
