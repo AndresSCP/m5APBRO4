@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <nav class="navbar navbar-expand-lg" id="bodynav">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.jsp">Inicio</a>
@@ -14,11 +14,18 @@
         <li class="nav-item">
           <a class="nav-link" href="formContacto.jsp">Contacto</a>
         </li>
-         <li class="nav-item">
+         <li class="nav-item"></li>
           
-        </li>       <li class="nav-item">
+         <li class="nav-item">
           <a class="nav-link" href="ListarCapServlet">Lista de Capacitaciones</a>
-        </li>             
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="UsuarioServlet">Listar Usuarios</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="CrearUsuario.jsp">Crear Usuarios</a>
+        </li>               
       </ul>
       			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link disabled">Usuario:
