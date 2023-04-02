@@ -7,7 +7,6 @@ import java.sql.SQLException;
 public class Capacitacion {
 
 	private int id;
-	private static int idSiguiente;
 	private long rut;
 	private String dia;
 	private String hora;
@@ -18,15 +17,12 @@ public class Capacitacion {
 	
 	/** metodo constructor vacio*/
 	public Capacitacion() {
-		super();
-		++idSiguiente;
-		id = idSiguiente;
 	}
 	
 	/** metodo constructor con los atributos como parametros */
-	public Capacitacion(long rut, String dia, String hora, String lugar, String duracion, int cantidadAsistentes ) {
-		++idSiguiente;
-		this.id = idSiguiente;
+	public Capacitacion(int id,long rut, String dia, String hora, String lugar, String duracion, int cantidadAsistentes ) {
+
+		this.id = id;
 		this.rut = rut;
 		this.dia = dia;
 		this.hora = hora;
@@ -38,16 +34,6 @@ public class Capacitacion {
 	/**@param IDS
 	 * Obligatorio
 	 * SETTER Y GETTER */
-	public void setId() {
-//		//MÉTODO INNECESARIO ID AUTOINCREMENTAL
-//		String id = Utilidades.ingresarObligatorio("Ingrese el ID de la capacitacion");
-//			do {
-//				if(id.length() != 0) {
-//					this.id = Integer.parseInt(id);
-//					break;
-//				}
-//			}while(true);
-	}
 
 	public int getId() {
 		return id;

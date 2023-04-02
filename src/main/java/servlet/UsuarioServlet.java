@@ -3,7 +3,7 @@ package servlet;
 import java.io.IOException;
 import clases.Usuario;
 import clases.DaoUsuarioImp;
-import interfaces.UsuarioDAO;
+import interfaces.IUsuarioDAO;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +28,7 @@ public class UsuarioServlet extends HttpServlet {
 		
 		
 		try {
-			UsuarioDAO DaoUsuario = new DaoUsuarioImp();// Ojo que aqui esta la caida
+			IUsuarioDAO DaoUsuario = new DaoUsuarioImp();// Ojo que aqui esta la caida
 			miArrayList = DaoUsuario.listarUsuario();
 		 } catch (Exception  e) {
 			 System.out.println(e.getMessage());

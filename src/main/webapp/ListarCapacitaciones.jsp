@@ -37,14 +37,15 @@ pageEncoding="UTF-8"%>
                 </tr>
             </thead>
             <tbody>
-				<c:forEach var="capacitacion" items="${miLista}" >
+                <c:forEach var="capacitacion" items="${miLista}" >
                     <tr>
+                    	<td>${capacitacion.id}</td>
                         <td>${capacitacion.rut}</td>
-                        <td>${capacitacion.Fecha}></td>
-                        <td>${capacitacion.Hora}></td>
-                        <td>${capacitacion.Lugar}></td>
-                        <td>${capacitacion.Duracion}></td>
-                        <td>${capacitacion.CantidadAsistentes}></td>
+                        <td>${capacitacion.dia}</td>
+                        <td>${capacitacion.hora}</td>
+                        <td>${capacitacion.lugar}</td>
+                        <td>${capacitacion.duracion}</td>
+                        <td>${capacitacion.cantidadAsistentes}</td>
                      </tr>   
                  </c:forEach>  
             </tbody>           

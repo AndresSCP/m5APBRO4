@@ -7,7 +7,7 @@ import clases.Usuario;
 
 
 
-public interface UsuarioDAO {
+public interface IUsuarioDAO {
 	
 	//Metodos del CRUD
 	public void addUsuario(Usuario usuario)throws Exception;// Metodo para crear un Usuario
