@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Inicio
  */
-@WebServlet("/Inicio")
+@WebServlet("/SvInicio")
 public class SvInicio extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

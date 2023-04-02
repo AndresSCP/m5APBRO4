@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class CrearCapacitacion
  */
-@WebServlet("/CrearCapacitacion")
+@WebServlet("/SvCrearCapacitacion")
 public class SvCrearCapacitacion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
