@@ -38,9 +38,17 @@ public class ListarCapServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ICapacitacionDao capacitacionDao = new CapacitacionDaoImpl();
+            // Obtener la sesión actual
+            HttpSession session = request.getSession();
+            
+            // Obtener un atributo de sesión
+            String username = (String) session.getAttribute("username");
+
+            //Verificar que la session este activa
+            if (session.getAttribute("username") != null) {
+            
+                ICapacitacionDao capacitacionDao = new CapacitacionDaoImpl();
 		miArrayList = capacitacionDao.obtener();
-		
 		
 		// Establecer el atributo miLista en el objeto request
 		request.setAttribute("miLista", miArrayList);
@@ -48,15 +56,6 @@ public class ListarCapServlet extends HttpServlet {
 		// Enviar el objeto request y el objeto response a la página JSP
 		request.getRequestDispatcher("ListarCapacitaciones.jsp").forward(request, response);
 
-
-		// Obtener la sesión actual
-        HttpSession session = request.getSession();
-
-        // Obtener un atributo de sesión
-        String username = (String) session.getAttribute("username");
-
-        //Verificar que la session este activa
-        if (session.getAttribute("username") != null) {
         	// Llamamos a la página JSP del formulario de contacto
             request.getRequestDispatcher("ListarCapacitaciones.jsp").forward(request, response);
         }else{

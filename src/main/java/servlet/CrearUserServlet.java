@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import clases.DaoUsuarioImp;
 import clases.Usuario;
-import interfaces.UsuarioDAO;
+import interfaces.IUsuarioDAO;
 
 /**
  * Servlet implementation class CrearCapacitacion
@@ -52,7 +52,7 @@ public class CrearUserServlet extends HttpServlet {
         
         //Creo el objeto Dao que tendra los metodos CRUD entre ellos Insertar
 		try {
-			UsuarioDAO  dao = new DaoUsuarioImp();
+			IUsuarioDAO  dao = new DaoUsuarioImp();
 			dao.addUsuario(user);// Como todos los metodos dao lanzan excepciones deben colocarse en un try catch
 		} catch (Exception  e) {
 			 System.out.println(e.getMessage());

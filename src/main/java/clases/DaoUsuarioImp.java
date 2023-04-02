@@ -7,12 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 //import clases.Usuario;
-import interfaces.UsuarioDAO;
+import interfaces.IUsuarioDAO;
 import conexion.ConexionSingleton;
 
 
 
-public class DaoUsuarioImp  implements UsuarioDAO {
+public class DaoUsuarioImp  implements IUsuarioDAO {
 	
 	private Connection conn;
 	

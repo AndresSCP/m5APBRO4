@@ -42,21 +42,22 @@ public class CapacitacionDaoImpl implements ICapacitacionDao{
 
 	@Override
 	public List<Capacitacion> obtener() {
-		String sql = "SELECT * FROM capacitaciones";
+		String sql = "SELECT * FROM capacitacion";
 		List<Capacitacion> lista = new ArrayList<>();
 		try {
 			PreparedStatement ps = conexion.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				Capacitacion capacitacion = new Capacitacion();
-				capacitacion.setId(rs.getInt("id"));
-				capacitacion.setRut(rs.getLong("rut"));
-				capacitacion.setDia(rs.getString("dia"));
-				capacitacion.setHora(rs.getString("hora"));
-				capacitacion.setLugar(rs.getString("lugar"));
-				capacitacion.setDuracion(rs.getString("duracion"));
-				capacitacion.setCantidadAsistentes(rs.getInt("cantidad_asistentes"));
+				capacitacion.setId(rs.getInt("idcapacitacion"));
+				capacitacion.setRut(rs.getLong("Cliente_rutcliente"));
+				capacitacion.setDia(rs.getString("capfecha"));
+				capacitacion.setHora(rs.getString("caphora"));
+				capacitacion.setLugar(rs.getString("caplugar"));
+				capacitacion.setDuracion(rs.getString("capduracion"));
+				capacitacion.setCantidadAsistentes(rs.getInt("capAsistentes"));
 				lista.add(capacitacion);
+                System.out.println(capacitacion);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
