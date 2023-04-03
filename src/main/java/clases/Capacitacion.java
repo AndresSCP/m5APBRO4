@@ -1,12 +1,9 @@
 package clases;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 public class Capacitacion {
 
 	private int id;
+	private String nombreCapacitacion;
 	private long rut;
 	private String dia;
 	private String hora;
@@ -20,9 +17,10 @@ public class Capacitacion {
 	}
 	
 	/** metodo constructor con los atributos como parametros */
-	public Capacitacion(int id,long rut, String dia, String hora, String lugar, String duracion, int cantidadAsistentes ) {
+	public Capacitacion(int id, String nombreCapacitacion,long rut, String dia, String hora, String lugar, String duracion, int cantidadAsistentes ) {
 
 		this.id = id;
+		this.nombreCapacitacion = nombreCapacitacion;
 		this.rut = rut;
 		this.dia = dia;
 		this.hora = hora;
@@ -30,10 +28,6 @@ public class Capacitacion {
 		this.duracion = duracion;
 		this.cantidadAsistentes = cantidadAsistentes;
 	}
-	
-	/**@param IDS
-	 * Obligatorio
-	 * SETTER Y GETTER */
 
 	public int getId() {
 		return id;
@@ -42,7 +36,15 @@ public class Capacitacion {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
+	public String getNombreCapacitacion() {
+		return nombreCapacitacion;
+	}
+
+	public void setNombreCapacitacion(String nombreCapacitacion) {
+		this.nombreCapacitacion = nombreCapacitacion;
+	}
+
 	public long getRut() {
 		return rut;
 	}
@@ -93,8 +95,9 @@ public class Capacitacion {
 
 	@Override
 	public String toString() {
-		return "Capacitacion [id=" + id + ", rut=" + rut + ", dia=" + dia + ", hora=" + hora + ", lugar=" + lugar
-				+ ", duracion=" + duracion + ", cantidadAsistentes=" + cantidadAsistentes + "]";
+		return "Capacitacion [id=" + id + ", nombreCapacitacion=" + nombreCapacitacion + ", rut=" + rut + ", dia=" + dia
+				+ ", hora=" + hora + ", lugar=" + lugar + ", duracion=" + duracion + ", cantidadAsistentes="
+				+ cantidadAsistentes + "]";
 	}
 	
 }

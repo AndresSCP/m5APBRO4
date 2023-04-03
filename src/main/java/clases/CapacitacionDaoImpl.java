@@ -23,21 +23,23 @@ public class CapacitacionDaoImpl implements ICapacitacionDao{
 
 	@Override
 	public boolean registrar(Capacitacion capacitacion) {
-		String sql = "INSERT INTO capacitaciones (rut,dia,hora,lugar,duracion,cantidad_asistentes) VALUES (?,?,?,?,?,?)";
-		try {
-			PreparedStatement ps = conexion.prepareStatement(sql);
-			ps.setLong(1, capacitacion.getRut());
-			ps.setString(2, capacitacion.getDia());
-			ps.setString(3, capacitacion.getHora());
-			ps.setString(4, capacitacion.getLugar());
-			ps.setString(5, capacitacion.getDuracion());
-			ps.setInt(6, capacitacion.getCantidadAsistentes());
-			ps.executeUpdate();
-			return true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
+	    String sql = "INSERT INTO capacitacion (capfecha,caphora,caplugar,capduracion,Cliente_rutcliente,capNombre,capAsistentes) VALUES (?,?,?,?,?,?,?)";
+	    try {
+	        PreparedStatement ps = conexion.prepareStatement(sql);
+	        ps.setString(1, capacitacion.getDia());
+	        ps.setString(2, capacitacion.getHora());
+	        ps.setString(3, capacitacion.getLugar());
+	        ps.setString(4, capacitacion.getDuracion());
+	        ps.setLong(5, capacitacion.getRut());
+	        ps.setString(6, capacitacion.getNombreCapacitacion());
+	        ps.setInt(7, capacitacion.getCantidadAsistentes());
+	        System.out.println(capacitacion);
+	        ps.executeUpdate();
+	        return true;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
 	}
 
 	@Override
@@ -55,6 +57,7 @@ public class CapacitacionDaoImpl implements ICapacitacionDao{
 				capacitacion.setHora(rs.getString("caphora"));
 				capacitacion.setLugar(rs.getString("caplugar"));
 				capacitacion.setDuracion(rs.getString("capduracion"));
+				capacitacion.setNombreCapacitacion(rs.getString("capNombre"));
 				capacitacion.setCantidadAsistentes(rs.getInt("capAsistentes"));
 				lista.add(capacitacion);
                 System.out.println(capacitacion);
@@ -70,7 +73,7 @@ public class CapacitacionDaoImpl implements ICapacitacionDao{
 //		String sql = "UPDATE capacitaciones SET rut=?,dia=?,hora=?,lugar=?,duracion=?,cantidad_asistentes=? WHERE id=?";
 		
 		try {
-			String sql = "UPDATE capacitaciones SET rut=?,dia=?,hora=?,lugar=?,duracion=?,cantidad_asistentes=? WHERE id=?";
+			String sql = "UPDATE capacitacion SET rut=?,dia=?,hora=?,lugar=?,duracion=?,cantidad_asistentes=? WHERE id=?";
 			PreparedStatement ps = conexion.prepareStatement(sql);
 			ps.setLong(1, capacitacion.getRut());
 			ps.setString(2, capacitacion.getDia());
@@ -89,7 +92,7 @@ public class CapacitacionDaoImpl implements ICapacitacionDao{
 
 	@Override
 	public boolean eliminar(Capacitacion capacitacion) {
-		String sql = "DELETE FROM capacitaciones WHERE id=?";
+		String sql = "DELETE FROM capacitacion WHERE id=?";
 		try {
 			PreparedStatement ps = conexion.prepareStatement(sql);
 			ps.setInt(1, capacitacion.getId());

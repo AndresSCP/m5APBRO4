@@ -1,29 +1,27 @@
 package clases;
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+
 //import clases.Usuario;
 import interfaces.IUsuarioDAO;
 import conexion.ConexionSingleton;
 
 
 
-public class DaoUsuarioImp  implements IUsuarioDAO {
+public class DaoUsuarioImp implements IUsuarioDAO {
 	
-	private Connection conn;
+	private Connection conexion = ConexionSingleton.getConexion();
+	List<Capacitacion> capacitacion;
 	
-	public DaoUsuarioImp() {
-		conn = ConexionSingleton.getConexion();
-	}
-
 	@Override
 	public void addUsuario(Usuario usuario) throws Exception {
 		try {
-			 PreparedStatement st = conn.prepareStatement("INSERT INTO usuarios (run, nombre, apellidos, fechaNac, idUsuario) VALUES (?,?,?,?,?);");
+			 PreparedStatement st = conexion.prepareStatement("INSERT INTO usuarios (run, nombre, apellidos, fechaNac, idUsuario) VALUES (?,?,?,?,?);");
 			 
 			 st.setInt(1, usuario.getRunUsuario());
 			 st.setString(2, usuario.getNombreUsuario());
@@ -36,9 +34,9 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 		}catch(Exception e) {
 			throw e;
 		}finally {
-			if (conn != null) {
+			if (conexion != null) {
 		        try {
-		            conn.close();
+		        	conexion.close();
 		        } catch (SQLException er) {
 		        	 er.printStackTrace();
 		        }
@@ -49,11 +47,10 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 
 	@Override
 	public ArrayList<Usuario> listarUsuario() throws Exception {
+		String sql = "SELECT * FROM usuarios";
 		ArrayList<Usuario> lista=  new ArrayList<Usuario>();
 		try {
-			 PreparedStatement st = conn.prepareStatement("SELECT run, nombre, apellidos, fechaNac FROM usuarios;");
-			 
-			 
+			 PreparedStatement st = conexion.prepareStatement("SELECT run, nombre, apellidos, fechaNac FROM usuarios;");		 
 			 ResultSet rs = st.executeQuery();
 			 while(rs.next()) {
 				 Usuario user = new Usuario();
@@ -72,9 +69,9 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 		}catch(Exception e) {
 			throw e;
 		}finally {
-			if (conn != null) {
+			if (conexion != null) {
 		        try {
-		            conn.close();
+		        	conexion.close();
 		        } catch (SQLException er) {
 		        	 er.getMessage();
 		        }
@@ -86,7 +83,7 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 	@Override
 	public void updateUsuario(Usuario usuario) throws Exception {
 		try {
-			 PreparedStatement st = conn.prepareStatement("UPDATE usuarios SET nombre = ? WHERE id = ? ");
+			 PreparedStatement st = conexion.prepareStatement("UPDATE usuarios SET nombre = ? WHERE id = ? ");
 			 st.setString(1, usuario.getNombreUsuario());
 			 st.setInt(2, usuario.getId());
 			 st.executeUpdate();
@@ -94,9 +91,9 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 		}catch(Exception e) {
 			throw e;
 		}finally {
-			if (conn != null) {
+			if (conexion != null) {
 		        try {
-		            conn.close();
+		        	conexion.close();
 		        } catch (SQLException er) {
 		        	 er.getMessage();
 		        }
@@ -108,16 +105,16 @@ public class DaoUsuarioImp  implements IUsuarioDAO {
 	@Override
 	public void deleteUsuario(Usuario usuario) throws Exception {
 		try {
-			 PreparedStatement st = conn.prepareStatement("DELETE FROM usuarios WHERE id= ?");
+			 PreparedStatement st = conexion.prepareStatement("DELETE FROM usuarios WHERE id= ?");
 			 st.setInt(1, usuario.getId());
 			 st.executeUpdate();
 		 
 		}catch(Exception e) {
 			throw e;
 		}finally {
-			if (conn != null) {
+			if (conexion != null) {
 		        try {
-		            conn.close();
+		        	conexion.close();
 		        } catch (SQLException er) {
 		        	 er.getMessage();
 		        }

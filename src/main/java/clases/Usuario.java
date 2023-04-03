@@ -1,7 +1,5 @@
 package clases;
 
-
-
 public class Usuario {
 	private  Integer id; // Autoincremetable
 	private  Integer runUsuario; // RUN del usuario (menor a 99.999.999)
@@ -9,9 +7,7 @@ public class Usuario {
 	private  String apellidoUsuario; // apellidos que identifica al usuario
 	private  String fechaNacimientoUsuario; // fecha de nacimiento del usuario
 	private  Integer idUsuario;
-	
-	
-	
+		
 	public Usuario() {
 		super();
 	}
@@ -75,9 +71,4 @@ public class Usuario {
 		this.idUsuario = idUsuario;
 	}
 	
-
-	
-	
-
-
 }
