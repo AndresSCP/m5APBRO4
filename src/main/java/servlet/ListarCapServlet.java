@@ -48,7 +48,7 @@ public class ListarCapServlet extends HttpServlet {
             if (session.getAttribute("username") != null) {
             
                 ICapacitacionDao capacitacionDao = new CapacitacionDaoImpl();
-		miArrayList = capacitacionDao.obtener();
+		        miArrayList = capacitacionDao.obtener();
 		
 		// Establecer el atributo miLista en el objeto request
 		request.setAttribute("miLista", miArrayList);
@@ -56,8 +56,6 @@ public class ListarCapServlet extends HttpServlet {
 		// Enviar el objeto request y el objeto response a la página JSP
 		request.getRequestDispatcher("ListarCapacitaciones.jsp").forward(request, response);
 
-        	// Llamamos a la página JSP del formulario de contacto
-            request.getRequestDispatcher("ListarCapacitaciones.jsp").forward(request, response);
         }else{
         	//Se redirige la pagina a login
         	request.getRequestDispatcher("login.jsp").forward(request, response);

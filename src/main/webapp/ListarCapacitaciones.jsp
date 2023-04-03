@@ -28,6 +28,7 @@ pageEncoding="UTF-8"%>
             <thead>
                 <tr>
                     <th>Capacitación</th>
+                    <th>Nombre</th>
                     <th>RUT</th>
                     <th>Día</th>
                     <th>Hora</th>
@@ -40,6 +41,7 @@ pageEncoding="UTF-8"%>
                 <c:forEach var="capacitacion" items="${miLista}" >
                     <tr>
                     	<td>${capacitacion.id}</td>
+                    	<td>${capacitacion.nombreCapacitacion}</td>
                         <td>${capacitacion.rut}</td>
                         <td>${capacitacion.dia}</td>
                         <td>${capacitacion.hora}</td>
