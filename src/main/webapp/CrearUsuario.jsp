@@ -50,6 +50,7 @@
 						  <input type="date" id="fechaNac" name="fechaNac" class="form-control" required 
 						         min="1900-01-01" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" 
 						         title="Ingrese la fecha en formato AAAA-MM-DD">
+						         
 					</div>
 					
 				</div>
@@ -77,6 +78,15 @@
 
 	<%@include file="extras/footer.jsp" %>
 </body>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+	integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+	integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+	crossorigin="anonymous"></script>
 <script>
 			function validarRut() {
 			  var rut = document.getElementById("run").value;

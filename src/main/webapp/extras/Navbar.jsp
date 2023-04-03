@@ -11,22 +11,30 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="CreacionDeCapacitacion.jsp">Capacitacion</a>
-				</li>
+			
+			<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" role="button"
+					data-bs-toggle="dropdown" aria-expanded="false"> Capacitacion </a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="CreacionDeCapacitacion.jsp">Crear Capacitacion</a></li>
+						<li><a class="dropdown-item" href="ListarCapServlet">Listar Capacitacion</a></li>
+						<li><hr class="dropdown-divider"></li>
 
-				<li class="nav-item"><a class="nav-link"
-					href="ListarCapServlet">Lista de Capacitaciones</a></li>
-
+					</ul></li>
+			
+				
+				<!-- 
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" role="button"
-					data-bs-toggle="dropdown" aria-expanded="false"> Usuario </a>
+					data-bs-toggle="dropdown" aria-expanded="false"> Usuario </a> 
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="CrearUsuario.jsp">Crear Usuario</a></li>
 						<li><a class="dropdown-item" href="ListarUsuarios.jsp">Listar Usuario</a></li>
 						<li><hr class="dropdown-divider"></li>
 
-					</ul></li>
+					</ul>
+				</li>
+				 -->
 				<li class="nav-item"><a class="nav-link"
 					href="formContacto.jsp">Contacto</a></li>
 				<li class="nav-item"></li>
