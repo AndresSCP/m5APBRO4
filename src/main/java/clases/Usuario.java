@@ -22,6 +22,15 @@ public class Usuario {
 		this.fechaNacimientoUsuario = fechaNacimientoUsuario;
 		this.idUsuario = idUsuario;
 	}
+	public Usuario( Integer runUsuario, String nombreUsuario, String apellidoUsuario, String fechaNacimientoUsuario) {
+		super();
+		//this.id = id;
+		this.runUsuario = runUsuario;
+		this.nombreUsuario = nombreUsuario;
+		this.apellidoUsuario = apellidoUsuario;
+		this.fechaNacimientoUsuario = fechaNacimientoUsuario;
+		//this.idUsuario = idUsuario;
+	}
 
 	public Integer getId() {
 		return id;
