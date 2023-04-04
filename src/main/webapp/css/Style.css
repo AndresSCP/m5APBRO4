@@ -1,12 +1,20 @@
 @charset "UTF-8";
 
 #bodyindex{
-	background-image: url('../imagenes/celeste.jpg')
+	background-image: url('../imagenes/celeste.jpg');
+	background-size:cover;
 }
 
 #bodylogin{
-	background-image: url('../imagenes/violeta2.jpg')
+	background-image: url('../imagenes/preve.jpg');
+  	background-size: auto 250%;	
+  	font-style: italic;
 }
+
+#textlogin{
+	padding-right:1400px;
+}
+
 
 h2 {
 	text-shadow: 2px 2px 5px black;
@@ -19,7 +27,8 @@ h2 {
 
 #parrafo1{
 	
-	background-image: url('../imagenes/azules1.jpg')
+	background-image: url('../imagenes/azules1.jpg');
+	background-size:cover;
 }
 
 p{
