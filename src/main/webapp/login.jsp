@@ -13,9 +13,9 @@
 <link rel="stylesheet" href="css/Style.css">
 </head>
 <body id="bodylogin">
-<h1 class="text-center">Inicio de sesión</h1>
+<h1 class="text-center" id="textlogin" >Inicio de sesión</h1>
 
-	<div class="conteiner-fluid">
+	<div class="conteiner-fluid" id="textlogin">
 		<div class="row">
 			<div class="col-12 d-flex justify-content-center">
 

@@ -29,7 +29,7 @@ public class Login extends HttpServlet {
             cookie.setMaxAge(1800);
             response.addCookie(cookie);
 
-            response.sendRedirect("ContactoServletJSP");
+            response.sendRedirect("SvInicio");
         } else {
             request.setAttribute("mensajeError", "Credenciales inválidas");
             request.getRequestDispatcher("login.jsp").forward(request, response);
